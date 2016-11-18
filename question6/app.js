@@ -1,6 +1,8 @@
+(function(){
+
 var app=angular.module('ehealth',['pouchdb']);
 
-app.controller("SaveController",function($log,pouchDB,$scope,$window)
+app.controller("SaveController",function($log,pouchDB,$scope)
 {
 
 $scope.product={};
@@ -13,10 +15,7 @@ $scope.getAllDoc=function(){
     $log.log(e);
   });
 };
-$scope.getAllDoc();
-$scope.loadData=function(){
-  $scope.product = $scope.getAllDoc();
-};
+
 
 $scope.put = function(){
   var data={
@@ -25,16 +24,21 @@ $scope.put = function(){
     "hobby":$scope.hobby,
     "date":new Date().toJSON()
   };
+
   var db=pouchDB("badre");
   return db.put(data).then(function(){
-    return db.allDocs({include_docs:true}).then(function(da){
-      $scope.product=da;
       $scope.fullname="";
       $scope.hobby="";
+      return  db.allDocs({include_docs:true}).then(function(response){
+        $scope.product=response;
+        $log.log(response);
+        return response;
+      }).catch(function(e){
+        $log.log(e);});
     }).catch(function(e){
       $log.log(e);
     });
-  });
-};
-
+  };
 });
+
+})();

@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   </head>
   <body>
-      <div ng-controller="SaveController as saveCtrl" class="container">
+      <div ng-controller="SaveController as saveCtrl" class="container" ng-init="getAllDoc()">
         <h1 class="header">Bald Page </h1><h4>Done with all the love for JS</h4>
         <form class="panel form-inline" name="collector" ng-submit="">
           <div class="form-group">
@@ -17,10 +17,15 @@
         </form>
         <div class="form-group" >
           <table class="table">
+            <tr>
+              <th>Full Name</th>
+              <th>Hobbies</th>
+              <th>Date</th>
+            </tr>
             <tr ng-repeat="d in product.rows">
-              <td><label>Full name </label> {{d.doc.fullname}}</td>
-              <td><label>Hobbies </label> {{d.doc.hobby}}</td>
-              <td><label>Date </label> {{d.doc.date | date:'fullDate'}}
+              <td> {{d.doc.fullname}}</td>
+              <td>{{d.doc.hobby}}</td>
+              <td>{{d.doc.date | date:'fullDate'}}
             </tr>
           </table>
         </div>

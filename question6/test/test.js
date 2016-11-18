@@ -2,16 +2,25 @@ describe('SaveController',function(){
   beforeEach(angular.mock.module('ehealth'));
 
   var $controller;
+  var value;
   beforeEach(inject(function(_$controller_){
-    // The injector unwraps the underscores (_) from around the parameter names when matching
+
     $controller = _$controller_;
   }));
 
-  describe('$scope.put',function(){
-    it('Returns true',function(){
-      var $scope={};
-      $controller=$controller('SaveController',{$scope:$scope});
-      expect($scope.put).toBeDefined();
+  //Test to ensure result is defined
+  describe('Checks that $scope.put returns a defined object result',function(){
+    it('Returns true',function(done){
+      setTimeout(function() {
+        var $scope={};
+        $controller=$controller('SaveController',{$scope:$scope});
+        expect($scope.put).toBeDefined();
+        //expect($scope.put).toBe(Object);
+
+        done();
+      }, 1);
+      //
     });
   });
+  //Test db inserts
 });
