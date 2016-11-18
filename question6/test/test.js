@@ -9,13 +9,14 @@ describe('SaveController',function(){
   }));
 
   //Test to ensure result is defined
-  describe('Checks that $scope.put returns an undefined object result',function(){
+  describe('Checks that $scope.save returns a defined object result',function(){
     it('Returns true',function(done){
       setTimeout(function() {
         var $scope={};
         $controller=$controller('SaveController',{$scope:$scope});
         //Got tired of making this work. Insufficient time to break it
-        expect($scope.put).toBe(undefined);
+        //console.log($scope);
+        expect($scope.save).toBeDefined();
         done();
       }, 1);
 
