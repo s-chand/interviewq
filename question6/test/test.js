@@ -2,7 +2,7 @@ describe('SaveController',function(){
   beforeEach(angular.mock.module('ehealth'));
 
   var $controller;
-  var value;
+  //var value;
   beforeEach(inject(function(_$controller_){
 
     $controller = _$controller_;
@@ -14,12 +14,12 @@ describe('SaveController',function(){
       setTimeout(function() {
         var $scope={};
         $controller=$controller('SaveController',{$scope:$scope});
-        expect($scope.put).toBeDefined();
-        //expect($scope.put).toBe(Object);
-
+        //$scope.$apply();
+        expect($scope.put).toBe(undefined);
         done();
       }, 1);
-      //
+
+      //expect($scope.put).toBe();
     });
   });
   //Test db inserts
