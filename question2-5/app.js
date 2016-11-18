@@ -1,3 +1,8 @@
+/**
+ *  Short Programming questions functions
+ *
+ */
+
 function compact(arr) {
   var size = arr.length;
   var err = [];
@@ -34,7 +39,6 @@ function rotate(nums, k) { // k = 2
   console.log(nums);
 
 }
-
 function reverse(nums, start, end) {
   while (start < end) {
     var temp = nums[start];
@@ -50,8 +54,6 @@ function find_chars_NN(string1, string2) {
   var s1 = string1.split('').join(',');
   var s2 = string2.split('').join(',');
 
-  //console.log(s1);
-  //console.log(s2);
   for (var c in s1) {
     for (var d in s2) {
       if (s1[c] == s2[d]) {
@@ -68,8 +70,7 @@ function find_chars_N(string1,string2) {
   var result = "";
 
   var str1 = string1.split('').join(',');
-  console.log(str1);
-  console.log(string2.indexOf('n'));
+
   for (var c in str1) {
 
     if (string2.indexOf(str1[c]) > -1) {
@@ -78,32 +79,43 @@ function find_chars_N(string1,string2) {
   }
   console.log(result);
 }
-function run(item){
-
-}
 function lcm(a, n) {
-  var res = 1, i;
-  for (i = 0; i < n; i++) {
-    res = res*a[i]/gcd(res, a[i]);
-  }
-  console.log(res);
-}
+
+        var res = 1, i;
+        for (i = 0; i < n; i++) {
+            res = res*a[i]/gcd(res, a[i]);
+        }
+        console.log(res);
+    }
+
+    /**
+     * Supporting function for Question 5
+     *
+     *
+     * The GCD function serves as a utility function for the LCM.
+     * It computes the Greatest Common Divisor of two numbers.
+     * These numbers are supplied in succession by the LCM function from the input array
+     * @param a first parameter
+     * @param b second paramter
+     * @return integer
+     */
 function gcd(a, b) {
-  if (b == 0) return a;
-  return gcd(b, a%b);
+        if (b == 0) return a;
+        return gcd(b, a%b);
 }
+
 /**
- *  Short Programming questions
+ *  Short Programming questions run base
  *
  */
-
  //Characters in Strings using the NN approach
  console.log("Characters in Strings using the N approach");
- find_chars_N("Josephine","Jonathan"); //Sample data can be changed here
+ find_chars_N("Josephine","Jonathan");
 
  //Characters in Strings using the NN approach
  console.log("Characters in Strings using the NN approach");
  find_chars_NN("Josephine","Jonathan");
+
 
 //Array compactions
 console.log("Array compaction. Test data is [1,3,7,7,8,9,9,10]");
@@ -113,8 +125,7 @@ compact([1,3,7,7,8,9,9,10]);
 console.log("Array rotation. Test data is [1,2,3,4,5,6] and index is 2");
 rotate([1,2,3,4,5,6],2);
 
-
 //Least Common Multiple
 console.log("Least Common Multiple");
-var arr=[1, 2, 3, 4, 5, 6];
+var arr=[1,2,3,4,5,6,7,8,9,10]
 lcm(arr,arr.length);
